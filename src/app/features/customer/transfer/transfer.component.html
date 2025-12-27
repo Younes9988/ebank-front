@@ -1,0 +1,54 @@
+<section class="panel">
+  <div class="header">
+    <h3>
+      <span class="icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10l-3.5-3.5L15 2l6 6-6 6-1.5-1.5L17 9H7zm10 10H7l3.5 3.5L9 22l-6-6 6-6 1.5 1.5L7 15h10z"/></svg>
+      </span>
+      Transfer funds
+    </h3>
+    <p>Move money between accounts securely.</p>
+  </div>
+
+  <form [formGroup]="transferForm" (ngSubmit)="submitTransfer()">
+    <label>
+      <span>Source RIB</span>
+      <div class="input">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v4H4zm0 6h10v2H4zm0 4h16v2H4z"/></svg>
+        </span>
+        <input type="text" formControlName="sourceRib" placeholder="Source RIB" />
+      </div>
+    </label>
+    <label>
+      <span>Destination RIB</span>
+      <div class="input">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v4H4zm0 6h10v2H4zm0 4h16v2H4z"/></svg>
+        </span>
+        <input type="text" formControlName="destinationRib" placeholder="Destination RIB" />
+      </div>
+    </label>
+    <label>
+      <span>Amount</span>
+      <div class="input">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 9 9 0 0 0-9-9Zm1 14h-2v-1a4 4 0 0 1-3-3h2a2 2 0 0 0 2 1 2 2 0 0 0 0-4 4 4 0 0 1-3-3 4 4 0 0 1 3-3V5h2v1a4 4 0 0 1 3 3h-2a2 2 0 0 0-2-1 2 2 0 0 0 0 4 4 4 0 0 1 3 3 4 4 0 0 1-3 3Z"/></svg>
+        </span>
+        <input type="number" formControlName="amount" placeholder="Amount" />
+      </div>
+    </label>
+    <label>
+      <span>Label</span>
+      <div class="input">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v4H4zm0 6h16v2H4zm0 4h10v2H4z"/></svg>
+        </span>
+        <input type="text" formControlName="label" placeholder="Transfer label" />
+      </div>
+    </label>
+    <button type="submit" [disabled]="isTransferSubmitting">
+      {{ isTransferSubmitting ? 'Sending...' : 'Send transfer' }}
+    </button>
+    <p class="message" *ngIf="transferMessage">{{ transferMessage }}</p>
+  </form>
+</section>

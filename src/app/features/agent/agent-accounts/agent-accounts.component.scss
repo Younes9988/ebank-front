@@ -1,0 +1,139 @@
+:host {
+  display: block;
+}
+
+.panel {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(16, 20, 31, 0.06);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.header h2 {
+  margin: 0 0 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.header p {
+  margin: 0;
+  color: #6b717d;
+  font-size: 0.9rem;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: #5c6270;
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid #e3e5ea;
+  border-radius: 10px;
+  padding: 0.6rem 0.75rem;
+  background: #ffffff;
+}
+
+.input:focus-within {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(255, 90, 95, 0.18);
+}
+
+.input input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 0.95rem;
+  background: transparent;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #b24c51;
+}
+
+.icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.7rem 1.5rem;
+  background: linear-gradient(90deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.message {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #a0454a;
+}
+
+.list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-header h3 {
+  margin: 0;
+}
+
+.ghost {
+  background: #fff2f3;
+  color: #a0454a;
+  border: 1px solid #ffd2d5;
+}
+
+.table {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 0.4fr 1.6fr 1fr 1fr;
+  gap: 0.5rem;
+  padding: 0.7rem 0.8rem;
+  background: #f8f8fb;
+  border-radius: 12px;
+  font-size: 0.85rem;
+}
+
+.row.head {
+  background: #fff3f4;
+  font-weight: 600;
+}

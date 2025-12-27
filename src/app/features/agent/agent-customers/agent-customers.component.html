@@ -1,0 +1,96 @@
+<section class="panel">
+  <div class="header">
+    <h2>
+      <span class="icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 13a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm10 0a3 3 0 1 1 3-3 3 3 0 0 1-3 3ZM2 20a5 5 0 0 1 10 0v1H2Zm11 1v-1a5 5 0 0 1 8-4v5Z"/></svg>
+      </span>
+      Customers
+    </h2>
+    <p>Create new customers and manage existing profiles.</p>
+  </div>
+
+  <form class="form" [formGroup]="customerForm" (ngSubmit)="createCustomer()">
+    <label>
+      <span>First name</span>
+      <div class="input">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.33 0-6 1.34-6 4v2h12v-2c0-2.66-2.67-4-6-4Z"/></svg>
+        </span>
+        <input type="text" formControlName="firstName" placeholder="First name" />
+      </div>
+    </label>
+    <label>
+      <span>Last name</span>
+      <div class="input">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3.33 0-6 1.34-6 4v2h12v-2c0-2.66-2.67-4-6-4Z"/></svg>
+        </span>
+        <input type="text" formControlName="lastName" placeholder="Last name" />
+      </div>
+    </label>
+    <label>
+      <span>Identity number</span>
+      <div class="input">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v4H4zm0 6h10v2H4zm0 4h16v2H4z"/></svg>
+        </span>
+        <input type="text" formControlName="identityNumber" placeholder="ID number" />
+      </div>
+    </label>
+    <label>
+      <span>Date of birth</span>
+      <div class="input">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h2v2h6V2h2v2h3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3Zm13 8H4v10h16ZM4 8h16V6H4Z"/></svg>
+        </span>
+        <input type="date" formControlName="dateOfBirth" />
+      </div>
+    </label>
+    <label>
+      <span>Email</span>
+      <div class="input">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm8 7L4 7v10h16V7Z"/></svg>
+        </span>
+        <input type="email" formControlName="email" placeholder="Email" />
+      </div>
+    </label>
+    <label class="full">
+      <span>Address</span>
+      <div class="input">
+        <span class="icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 1 7 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 0 1 7-7Zm0 9a2 2 0 1 0-2-2 2 2 0 0 0 2 2Z"/></svg>
+        </span>
+        <input type="text" formControlName="address" placeholder="Address" />
+      </div>
+    </label>
+    <button type="submit" [disabled]="isSubmitting">
+      {{ isSubmitting ? 'Creating...' : 'Create customer' }}
+    </button>
+  </form>
+
+  <p class="message" *ngIf="message">{{ message }}</p>
+
+  <div class="list">
+    <div class="list-header">
+      <h3>Existing customers</h3>
+      <button type="button" class="ghost" (click)="loadCustomers()" [disabled]="isLoading">
+        {{ isLoading ? 'Refreshing...' : 'Refresh' }}
+      </button>
+    </div>
+    <div class="table">
+      <div class="row head">
+        <span>ID</span>
+        <span>Name</span>
+        <span>Email</span>
+        <span>Identity</span>
+      </div>
+      <div class="row" *ngFor="let customer of customers">
+        <span>{{ customer.id }}</span>
+        <span>{{ customer.firstName }} {{ customer.lastName }}</span>
+        <span>{{ customer.email }}</span>
+        <span>{{ customer.identityNumber }}</span>
+      </div>
+    </div>
+  </div>
+</section>
